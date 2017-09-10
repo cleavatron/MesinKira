@@ -8,6 +8,16 @@
 
 import Foundation
 
+func floatingPoint(op1: Double, op2: Double) -> Double{
+  
+  // check validity of floating point value
+  // "12.34.56" is not a valid number
+  // assume op1 has accumulator value
+  
+  
+  let floatingNum = String(op1) + "." + String(op2)
+  return Double(floatingNum)!
+}
 
 struct CalculatorBrain{
   
@@ -29,6 +39,7 @@ struct CalculatorBrain{
       "÷": Operation.binaryOperation({ $0 / $1}),
       "+": Operation.binaryOperation({ $0 + $1 }),
       "−": Operation.binaryOperation({ $0 - $1}),
+      ".": Operation.binaryOperation(floatingPoint),
       "=": Operation.equals
   ]
   
